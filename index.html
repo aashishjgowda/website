@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Information Portfolio</title>
+
+  <!-- Fonts: modern, readable, and limited to 2 font families -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <!-- Decorative background blobs -->
+    <div class="blob blob-1" aria-hidden="true"></div>
+    <div class="blob blob-2" aria-hidden="true"></div>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Student Information Website</p>
+
+        <!-- Professional heading instead of "Hi, I'm..." -->
+        <h1>Electronics &amp; Communication Engineering Student</h1>
+
+        <p class="hero__subtitle">
+          Passionate about electronics, communication systems, innovation, and emerging technologies.
+          Focused on building strong technical skills and contributing to impactful engineering solutions.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#profile" class="btn btn--primary">View Profile</a>
+          <a href="#contact" class="btn btn--secondary">Contact Me</a>
+        </div>
+      </div>
+
+      <aside class="photo-card" aria-label="Student photograph">
+        <!-- Replace this with your actual image if needed -->
+        <img
+          src=legend2.jpg
+          alt="Aashish J Gowda"
+          class="photo-card__img"
+        />
+        <div class="photo-card__overlay">
+          <h2 id="overlayName">Aashish J Gowda</h2>
+          <p>ECE Student | Learner | Future Engineer</p>
+        </div>
+      </aside>
+    </header>
+
+    <!-- QUICK STATS -->
+    <section class="stats" aria-label="Quick student overview">
+      <article class="stat-card">
+        <span class="stat-card__label">USN / Roll No.</span>
+        <strong id="usnText">1BI25EC001</strong>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-card__label">Department</span>
+        <strong id="departmentText">Electronics &amp; Communication Engineering</strong>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-card__label">Semester</span>
+        <strong id="semesterText">1st Semester</strong>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-card__label">CGPA</span>
+        <strong id="cgpaText">7.05 / 10</strong>
+      </article>
+    </section>
+
+    <!-- MAIN PROFILE LAYOUT -->
+    <main class="layout" id="profile">
+      <!-- LEFT COLUMN -->
+      <section class="panel panel--left">
+        <div class="panel__header">
+          <h2>Personal Profile</h2>
+          <p>Essential details presented in a clean and structured format.</p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <span>Student Name</span>
+            <strong id="nameText">Aashish J Gowda</strong>
+          </div>
+
+          <div class="info-item">
+            <span>USN / Roll Number</span>
+            <strong id="usnInfo">1BI25EC001</strong>
+          </div>
+
+          <div class="info-item">
+            <span>Department</span>
+            <strong id="departmentInfo">Electronics &amp; Communication Engineering</strong>
+          </div>
+
+          <div class="info-item">
+            <span>Semester</span>
+            <strong id="semesterInfo">1st Semester</strong>
+          </div>
+
+          <div class="info-item">
+            <span>Date of Birth</span>
+            <strong id="dobText">21 September 2007</strong>
+          </div>
+
+          <div class="info-item">
+            <span>Contact Number</span>
+            <strong id="phoneText">+91 XXXXXXXXXX</strong>
+          </div>
+
+          <div class="info-item">
+            <span>Email ID</span>
+            <strong id="emailText">your-email@example.com</strong>
+          </div>
+
+          <div class="info-item info-item--full">
+            <span>Address</span>
+            <strong id="addressText">Your address here</strong>
+          </div>
+        </div>
+
+        <div class="attendance-card">
+          <div class="panel__header panel__header--compact">
+            <h2>Attendance Details</h2>
+            <p>Overall attendance shown as a visual progress indicator.</p>
+          </div>
+
+          <div class="attendance-card__content">
+            <div class="attendance-ring" aria-label="Attendance percentage">
+              <div class="attendance-ring__inner">
+                <strong id="attendanceValue">90%</strong>
+                <span>Attendance</span>
+              </div>
+            </div>
+
+            <div class="attendance-meta">
+              <div class="progress-row">
+                <div class="progress-row__top">
+                  <span>Overall Attendance</span>
+                  <strong id="attendanceLabel">90%</strong>
+                </div>
+                <div class="progress">
+                  <div class="progress__bar" id="attendanceBar" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <ul class="bullet-list">
+                <li>Attendance can be updated later from script.js</li>
+                <li>Subject-wise attendance is listed on the right</li>
+                <li>Designed for a neat portfolio-style presentation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN -->
+      <section class="panel panel--right">
+        <div class="panel__header">
+          <h2>Academic Snapshot</h2>
+          <p>Switch between academic marks and achievements using the tabs.</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs" role="tablist" aria-label="Academic tabs">
+          <button class="tab-btn tab-btn--active" role="tab" aria-selected="true" aria-controls="academic-panel" id="academic-tab">
+            Academic Marks / CGPA
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="achievements-panel" id="achievements-tab">
+            Achievements / Certifications
+          </button>
+        </div>
+
+        <!-- Academic panel -->
+        <section class="tab-panel tab-panel--active" id="academic-panel" role="tabpanel" aria-labelledby="academic-tab">
+          <div class="card-grid" id="semesterCards"></div>
+
+          <div class="subject-table" id="marksTable"></div>
+
+          <div class="highlight-card">
+            <h3>Academic Performance</h3>
+            <p>
+              Semester 1 completed with a CGPA of 7.05.
+              Focused on strengthening fundamentals in mathematics, electronics,
+              programming, and communication skills.
+            </p>
+          </div>
+
+          <div class="highlight-card">
+            <h3>Subject-wise Attendance</h3>
+            <div class="subject-table" id="attendanceTable"></div>
+            </div>
+
+</div>
+          </div>
+        </section>
+
+        <!-- Achievements panel -->
+        <section class="tab-panel" id="achievements-panel" role="tabpanel" aria-labelledby="achievements-tab" hidden>
+          <div class="achievement-list">
+            <article class="achievement-item">
+              <span class="achievement-item__icon">📜</span>
+              <div>
+                <h3>IBM SkillsBuild Certificate</h3>
+                <p>
+                  Successfully completed IBM SkillsBuild certification and gained
+                  practical knowledge in professional development and emerging technologies.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="highlight-card">
+            <h3>Learning Focus</h3>
+            <p>
+              Building project-based skills, improving communication, and strengthening
+              core technical understanding for future placement opportunities.
+            </p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="panel__header">
+        <h2>Quick Contact</h2>
+        <p>Simple client-side validation for the contact form.</p>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="visitorName">Name</label>
+          <input type="text" id="visitorName" placeholder="Enter your name" />
+          <small class="error" id="nameError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="visitorEmail">Email</label>
+          <input type="email" id="visitorEmail" placeholder="Enter your email" />
+          <small class="error" id="emailError"></small>
+        </div>
+
+        <div class="form-group form-group--full">
+          <label for="visitorMessage">Message</label>
+          <textarea id="visitorMessage" rows="4" placeholder="Write a message..."></textarea>
+          <small class="error" id="messageError"></small>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary">Send Message</button>
+          <p class="form-note" id="formNote" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> <span id="footerName">Aashish J Gowda</span> — Student Information Portfolio</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
