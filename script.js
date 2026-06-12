@@ -4,7 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   // -------------------------
-  // EDIT THESE VALUES LATER
+  // STUDENT DETAILS
   // -------------------------
   const studentData = {
     name: "Aashish J Gowda",
@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     semester: "1st Semester",
     cgpa: "7.05 / 10",
     dob: "21 September 2007",
-    email: "aashishj2100@gmail.com.com",
+    email: "aashishj2100@gmail.com",
     phone: "+91 9380838280",
-    address: "11th Main road raghavendra block Srinagar banglor-560050",
+    address: "11th Main road, Raghavendra Block, Srinagar, Bengaluru - 560050",
     overallAttendance: 90
   };
 
-  // Subject marks for Semester 1 (from your marks card)
+  // Semester 1 marks from your marks card
   const marksData = [
     { subject: "Mathematics-I", marks: "72" },
     { subject: "Applied Chemistry", marks: "60" },
@@ -31,17 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
     { subject: "Innovation & Design Thinking Lab", marks: "96" }
   ];
 
-
- const attendanceData = [
-  { subject: "Mathematics-I", attendance: "95%" },
-  { subject: "Applied Chemistry", attendance: "90%" },
-  { subject: "Introduction to AI & Applications", attendance: "92%" },
-  { subject: "Introduction to Electrical Engineering", attendance: "95%" },
-  { subject: "Introduction to C Programming", attendance: "85%" },
-  { subject: "Communication Skills", attendance: "92%" },
-  { subject: "Indian Constitution & Engineering Ethics", attendance: "88%" },
-  { subject: "Innovation & Design Thinking Lab", attendance: "97%" }
-];
+  // Subject-wise attendance
+  const attendanceData = [
+    { subject: "Mathematics-I", attendance: "95%" },
+    { subject: "Applied Chemistry", attendance: "90%" },
+    { subject: "Introduction to AI & Applications", attendance: "92%" },
+    { subject: "Introduction to Electrical Engineering", attendance: "95%" },
+    { subject: "Introduction to C Programming", attendance: "85%" },
+    { subject: "Communication Skills", attendance: "92%" },
+    { subject: "Indian Constitution & Engineering Ethics", attendance: "88%" },
+    { subject: "Innovation & Design Thinking Lab", attendance: "97%" }
+  ];
 
   const semesterCardsData = [
     { label: "Semester", value: studentData.semester },
@@ -51,92 +51,115 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   // -------------------------
+  // HELPERS
+  // -------------------------
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  };
+
+  // -------------------------
   // QUICK TEXT UPDATES
   // -------------------------
-  document.getElementById("usnText").textContent = studentData.usn;
-  document.getElementById("departmentText").textContent = studentData.department;
-  document.getElementById("semesterText").textContent = studentData.semester;
-  document.getElementById("cgpaText").textContent = studentData.cgpa;
+  setText("usnText", studentData.usn);
+  setText("departmentText", studentData.department);
+  setText("semesterText", studentData.semester);
+  setText("cgpaText", studentData.cgpa);
 
-  document.getElementById("nameText").textContent = studentData.name;
-  document.getElementById("usnInfo").textContent = studentData.usn;
-  document.getElementById("departmentInfo").textContent = studentData.department;
-  document.getElementById("semesterInfo").textContent = studentData.semester;
-  document.getElementById("dobText").textContent = studentData.dob;
-  document.getElementById("emailText").textContent = studentData.email;
-  document.getElementById("phoneText").textContent = studentData.phone;
-  document.getElementById("addressText").textContent = studentData.address;
-  document.getElementById("overlayName").textContent = studentData.name;
-  document.getElementById("footerName").textContent = studentData.name;
-  document.getElementById("year").textContent = new Date().getFullYear();
+  setText("nameText", studentData.name);
+  setText("usnInfo", studentData.usn);
+  setText("departmentInfo", studentData.department);
+  setText("semesterInfo", studentData.semester);
+  setText("dobText", studentData.dob);
+  setText("emailText", studentData.email);
+  setText("phoneText", studentData.phone);
+  setText("addressText", studentData.address);
+  setText("footerName", studentData.name);
+  setText("year", new Date().getFullYear());
+
+  // Optional element if you still keep a mini name block somewhere
+  setText("overlayName", studentData.name);
 
   // -------------------------
   // OVERALL ATTENDANCE RING
   // -------------------------
   const attendance = studentData.overallAttendance;
-  document.getElementById("attendanceValue").textContent = `${attendance}%`;
-  document.getElementById("attendanceLabel").textContent = `${attendance}%`;
-  document.getElementById("attendanceBar").style.width = `${attendance}%`;
+
+  setText("attendanceValue", `${attendance}%`);
+  setText("attendanceLabel", `${attendance}%`);
+
+  const attendanceBar = document.getElementById("attendanceBar");
+  if (attendanceBar) {
+    attendanceBar.style.width = `${attendance}%`;
+  }
 
   const ring = document.querySelector(".attendance-ring");
-  ring.style.background = `conic-gradient(var(--primary) 0 ${attendance}%, #e5e7eb ${attendance}% 100%)`;
+  if (ring) {
+    ring.style.background = `conic-gradient(var(--primary) 0 ${attendance}%, #e5e7eb ${attendance}% 100%)`;
+  }
 
   // -------------------------
   // RENDER SEMESTER CARDS
   // -------------------------
   const semesterCardsContainer = document.getElementById("semesterCards");
-  semesterCardsContainer.innerHTML = semesterCardsData
-    .map(
-      (card) => `
-        <article class="mini-card">
-          <span>${card.label}</span>
-          <strong>${card.value}</strong>
-        </article>
-      `
-    )
-    .join("");
+  if (semesterCardsContainer) {
+    semesterCardsContainer.innerHTML = semesterCardsData
+      .map(
+        (card) => `
+          <article class="mini-card">
+            <span>${card.label}</span>
+            <strong>${card.value}</strong>
+          </article>
+        `
+      )
+      .join("");
+  }
 
   // -------------------------
   // RENDER SUBJECT MARKS TABLE
   // -------------------------
   const marksTable = document.getElementById("marksTable");
-  marksTable.innerHTML = `
-    <div class="subject-table__row subject-table__head">
-      <span>Subject</span>
-      <span>Marks</span>
-    </div>
-    ${marksData
-      .map(
-        (row) => `
-          <div class="subject-table__row">
-            <span>${row.subject}</span>
-            <span>${row.marks}</span>
-          </div>
-        `
-      )
-      .join("")}
-  `;
+  if (marksTable) {
+    marksTable.innerHTML = `
+      <div class="subject-table__row subject-table__head">
+        <span>Subject</span>
+        <span>Marks</span>
+      </div>
+      ${marksData
+        .map(
+          (row) => `
+            <div class="subject-table__row">
+              <span>${row.subject}</span>
+              <span>${row.marks}</span>
+            </div>
+          `
+        )
+        .join("")}
+    `;
+  }
 
   // -------------------------
   // RENDER SUBJECT ATTENDANCE TABLE
   // -------------------------
   const attendanceTable = document.getElementById("attendanceTable");
-  attendanceTable.innerHTML = `
-    <div class="subject-table__row subject-table__head">
-      <span>Subject</span>
-      <span>Attendance</span>
-    </div>
-    ${attendanceData
-      .map(
-        (row) => `
-          <div class="subject-table__row">
-            <span>${row.subject}</span>
-            <span>${row.attendance}</span>
-          </div>
-        `
-      )
-      .join("")}
-  `;
+  if (attendanceTable) {
+    attendanceTable.innerHTML = `
+      <div class="subject-table__row subject-table__head">
+        <span>Subject</span>
+        <span>Attendance</span>
+      </div>
+      ${attendanceData
+        .map(
+          (row) => `
+            <div class="subject-table__row">
+              <span>${row.subject}</span>
+              <span>${row.attendance}</span>
+            </div>
+          `
+        )
+        .join("")}
+    `;
+  }
 
   // -------------------------
   // TAB SWITCHING
@@ -160,7 +183,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       button.classList.add("tab-btn--active");
       button.setAttribute("aria-selected", "true");
-      targetPanel.hidden = false;
+
+      if (targetPanel) {
+        targetPanel.hidden = false;
+      }
     });
   });
 
@@ -168,49 +194,56 @@ document.addEventListener("DOMContentLoaded", () => {
   // CONTACT FORM VALIDATION
   // -------------------------
   const contactForm = document.getElementById("contactForm");
-  const visitorName = document.getElementById("visitorName");
-  const visitorEmail = document.getElementById("visitorEmail");
-  const visitorMessage = document.getElementById("visitorMessage");
 
-  const nameError = document.getElementById("nameError");
-  const emailError = document.getElementById("emailError");
-  const messageError = document.getElementById("messageError");
-  const formNote = document.getElementById("formNote");
+  if (contactForm) {
+    const visitorName = document.getElementById("visitorName");
+    const visitorEmail = document.getElementById("visitorEmail");
+    const visitorMessage = document.getElementById("visitorMessage");
 
-  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const messageError = document.getElementById("messageError");
+    const formNote = document.getElementById("formNote");
 
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+    const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 
-    nameError.textContent = "";
-    emailError.textContent = "";
-    messageError.textContent = "";
-    formNote.textContent = "";
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-    let isValid = true;
+      if (nameError) nameError.textContent = "";
+      if (emailError) emailError.textContent = "";
+      if (messageError) messageError.textContent = "";
+      if (formNote) formNote.textContent = "";
 
-    if (visitorName.value.trim().length < 2) {
-      nameError.textContent = "Please enter your full name.";
-      isValid = false;
-    }
+      let isValid = true;
 
-    if (!isValidEmail(visitorEmail.value)) {
-      emailError.textContent = "Please enter a valid email address.";
-      isValid = false;
-    }
+      if (visitorName && visitorName.value.trim().length < 2) {
+        if (nameError) nameError.textContent = "Please enter your full name.";
+        isValid = false;
+      }
 
-    if (visitorMessage.value.trim().length < 10) {
-      messageError.textContent = "Message should be at least 10 characters long.";
-      isValid = false;
-    }
+      if (visitorEmail && !isValidEmail(visitorEmail.value)) {
+        if (emailError) emailError.textContent = "Please enter a valid email address.";
+        isValid = false;
+      }
 
-    if (isValid) {
-      formNote.style.color = "var(--success)";
-      formNote.textContent = "Message sent successfully! This is a demo form validation.";
-      contactForm.reset();
-    } else {
-      formNote.style.color = "var(--danger)";
-      formNote.textContent = "Please fix the highlighted errors and try again.";
-    }
-  });
+      if (visitorMessage && visitorMessage.value.trim().length < 10) {
+        if (messageError) messageError.textContent = "Message should be at least 10 characters long.";
+        isValid = false;
+      }
+
+      if (isValid) {
+        if (formNote) {
+          formNote.style.color = "var(--success)";
+          formNote.textContent = "Message sent successfully! This is a demo form validation.";
+        }
+        contactForm.reset();
+      } else {
+        if (formNote) {
+          formNote.style.color = "var(--danger)";
+          formNote.textContent = "Please fix the highlighted errors and try again.";
+        }
+      }
+    });
+  }
 });
