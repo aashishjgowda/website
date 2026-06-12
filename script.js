@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     name: "Aashish J Gowda",
     usn: "1BI25EC001",
     department: "Electronics & Communication Engineering",
-    semester: "1st Semester",
+    semester: "2nd Semester",
     cgpa: "7.05 / 10",
     dob: "21 September 2007",
     email: "aashishj2100@gmail.com",
