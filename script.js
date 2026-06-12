@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
     semester: "1st Semester",
     cgpa: "7.05 / 10",
     dob: "21 September 2007",
-    email: "your-email@example.com",
-    phone: "+91 XXXXXXXXXX",
-    address: "Your address here",
+    email: "aashishj2100@gmail.com.com",
+    phone: "+91 9380838280",
+    address: "11th Main road raghavendra block Srinagar banglor-560050",
     overallAttendance: 90
   };
 
