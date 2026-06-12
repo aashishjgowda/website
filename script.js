@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
   { subject: "Mathematics-I", attendance: "95%" },
   { subject: "Applied Chemistry", attendance: "90%" },
   { subject: "Introduction to AI & Applications", attendance: "92%" },
-  { subject: "Introduction to Electrical Engineering", attendance: "88%" },
+  { subject: "Introduction to Electrical Engineering", attendance: "95%" },
   { subject: "Introduction to C Programming", attendance: "85%" },
-  { subject: "Communication Skills", attendance: "98%" },
-  { subject: "Indian Constitution & Engineering Ethics", attendance: "100%" },
+  { subject: "Communication Skills", attendance: "92%" },
+  { subject: "Indian Constitution & Engineering Ethics", attendance: "88%" },
   { subject: "Innovation & Design Thinking Lab", attendance: "97%" }
 ];
 
