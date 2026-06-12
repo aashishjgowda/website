@@ -31,8 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { subject: "Innovation & Design Thinking Lab", marks: "96" }
   ];
 
-  // Replace these attendance values later with your actual percentages.
-  // Use numbers or strings like "95%" if you prefer.
+
  const attendanceData = [
   { subject: "Mathematics-I", attendance: "95%" },
   { subject: "Applied Chemistry", attendance: "90%" },
